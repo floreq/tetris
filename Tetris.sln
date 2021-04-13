@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tetris", "Tetris\Tetris.csproj", "{C9B31B0D-97C6-428E-941C-22595955EFAE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F} = {294ECEAE-3CD3-4CEC-BECD-C77E263B201F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TetrisModel", "TetrisModel\TetrisModel.csproj", "{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{380DBB97-4697-4771-9623-8162D9A36505}"
+	ProjectSection(ProjectDependencies) = postProject
+		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F} = {294ECEAE-3CD3-4CEC-BECD-C77E263B201F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9B31B0D-97C6-428E-941C-22595955EFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B31B0D-97C6-428E-941C-22595955EFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B31B0D-97C6-428E-941C-22595955EFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B31B0D-97C6-428E-941C-22595955EFAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380DBB97-4697-4771-9623-8162D9A36505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380DBB97-4697-4771-9623-8162D9A36505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380DBB97-4697-4771-9623-8162D9A36505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380DBB97-4697-4771-9623-8162D9A36505}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CBF7D63-DEC5-4CC5-827C-9EA09803990D}
+	EndGlobalSection
+EndGlobal

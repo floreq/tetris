@@ -10,6 +10,7 @@ namespace Console
         static void Main(string[] args)
         {
             var g = new Game();
+            g.gameEnded += () => System.Console.WriteLine(g.Score);
             g.Start();
         }
     }

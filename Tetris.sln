@@ -8,9 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tetris", "Tetris\Tetris.csp
 		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F} = {294ECEAE-3CD3-4CEC-BECD-C77E263B201F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TetrisModel", "TetrisModel\TetrisModel.csproj", "{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TetrisModel", "TetrisModel\TetrisModel.csproj", "{294ECEAE-3CD3-4CEC-BECD-C77E263B201F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{380DBB97-4697-4771-9623-8162D9A36505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Console\Console.csproj", "{380DBB97-4697-4771-9623-8162D9A36505}"
 	ProjectSection(ProjectDependencies) = postProject
 		{294ECEAE-3CD3-4CEC-BECD-C77E263B201F} = {294ECEAE-3CD3-4CEC-BECD-C77E263B201F}
 	EndProjectSection

@@ -11,6 +11,15 @@ namespace TetrisModel
             var random = new Random().Next(0, blocks.Count);
             return blocks[random];
         }
+        public bool IsGameOver(Board board)
+        {
+            var width = board.StackSize.Width;
+            for (int i = 0; i < width; i++)
+            {
+                if (board.Stack[0, i] == board.freezCharacter) return true;
+            }
+            return false;
+        }
         public bool CanMoveDown(Board board)
         {
             var blockBodyCharacter = board.ActualBlock.ActualRotation.BodyCharacter;

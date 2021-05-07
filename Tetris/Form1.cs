@@ -14,6 +14,9 @@ namespace Tetris
     public partial class Form1 : Form
     {
         Game game = new Game();
+
+        public static int GameOverScore = 0;
+
         Size blockElementSize = new Size(10, 10);
         SolidBrush activeBlockColor = new SolidBrush(Color.Red);
         SolidBrush freezedBlockColor = new SolidBrush(Color.Blue);
@@ -41,14 +44,6 @@ namespace Tetris
                     else e.Graphics.FillRectangle(activeBlockColor, blockElement);
                 }
             }
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            if (game.isRuning) return;
-            game.Start();
-            timGame.Start();
-            timGame.Tick += new EventHandler(timGame_Tick);
         }
 
         private void timGame_Tick(object Sender, EventArgs e)
@@ -81,6 +76,35 @@ namespace Tetris
                 default:
                     break;
             }
+        }
+
+        private void lblActualScore_Paint(object sender, PaintEventArgs e)
+        {
+            lblActualScore.Text = game.Score.ToString();
+        }
+
+        private void tsmiNewGame_Click(object sender, EventArgs e)
+        {
+            if (game.isRuning) return;
+            tsmiNewGame.Enabled = false;
+            game.scored += () => lblActualScore.Text = game.Score.ToString();
+            game.gameEnded += () =>
+            {
+                timGame.Stop();
+                GameOverScore = game.Score;
+                var gameOver = new GameOver();
+                game = new Game();
+                tsmiNewGame.Enabled = true;
+                lblActualScore.Text = "0";
+                gameOver.ShowDialog();
+            };
+            game.Start();
+            timGame.Start();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timGame.Tick += new EventHandler(timGame_Tick);
         }
     }
 }

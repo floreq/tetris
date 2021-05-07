@@ -11,15 +11,6 @@ namespace TetrisModel
             var random = new Random().Next(0, blocks.Count);
             return blocks[random];
         }
-        public bool IsGameOver(Board board)
-        {
-            var width = board.StackSize.Width;
-            for (int i = 0; i < width; i++)
-            {
-                if (board.Stack[0, i] == board.freezCharacter) return true;
-            }
-            return false;
-        }
         public bool CanMoveDown(Board board)
         {
             var blockBodyCharacter = board.ActualBlock.ActualRotation.BodyCharacter;
@@ -77,6 +68,19 @@ namespace TetrisModel
                 {
                     if (stack[i, j] != blockBodyCharacter) continue;
                     if (j == 0 || (stack[i, j - 1] != board.stackCharacter && stack[i, j - 1] != blockBodyCharacter)) return false;
+                }
+            }
+            return true;
+        }
+        public bool CanInsert(Board board, Block newBlock, int insertColumn)
+        {
+            var blockSize = newBlock.ActualRotation.GetBodySize();
+            var stack = board.Stack;
+            for (int i = 0; i < blockSize.Height; i++)
+            {
+                for (int j = insertColumn; j < insertColumn + blockSize.Width; j++)
+                {
+                    if (stack[i, j] != board.stackCharacter) return false;
                 }
             }
             return true;

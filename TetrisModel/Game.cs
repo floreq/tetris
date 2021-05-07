@@ -13,6 +13,7 @@ namespace TetrisModel
         public int Score { get; private set; } = 0;
         public bool isRuning { get; private set; } = false;
         public event Action gameEnded;
+        public event Action scored;
 
         public Game()
         {
@@ -88,7 +89,7 @@ namespace TetrisModel
                 new Rotation(new int[,]
                 {
                     { 1, 1 },
-                    { 1, 1 }     
+                    { 1, 1 }
                 }, new Point(0, 0))
             }));
             Blocks.Add(new Block(new List<Rotation>
@@ -209,7 +210,9 @@ namespace TetrisModel
         }
         public void InsertBlock()
         {
-            Playground.InsertBlock(Mind.GetRandomBlock(Blocks).SetRandomRotation());
+            var newBlock = Mind.GetRandomBlock(Blocks).SetRandomRotation();
+            if (Mind.CanInsert(Playground, newBlock, Playground.GetStackCenter().Width)) Playground.InsertBlock(newBlock);
+            else EndGame();
         }
         public int[,] GetBoard()
         {
@@ -225,11 +228,6 @@ namespace TetrisModel
         }
         public void Tick()
         {
-            if (Mind.IsGameOver(Playground))
-            {
-                EndGame();
-                return;
-            }
             if (Mind.CanMoveDown(Playground)) Playground.MoveDown();
             else
             {
@@ -239,10 +237,12 @@ namespace TetrisModel
                 while (f.isFullRow)
                 {
                     Playground.RemoveRow(f.index);
-                    Score++;
+                    Score += 10;
+                    scored?.Invoke();
                     f = Mind.FindFullRow(Playground);
                 }
-                Playground.InsertBlock(Mind.GetRandomBlock(Blocks).SetRandomRotation());
+
+                InsertBlock();
             }
         }
         public void Start()

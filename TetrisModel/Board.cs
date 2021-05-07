@@ -18,7 +18,7 @@ namespace TetrisModel
             FillStack();
         }
 
-        private Size GetStackCenter()
+        public Size GetStackCenter()
         {
             return new Size(StackSize.Width / 2, StackSize.Height / 2);
         }
